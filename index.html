@@ -1,0 +1,398 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+<style type="text/css">
+  @font-face {
+   font-family: 'Avenir Book';
+   src: url("./fonts/Avenir_Book.ttf"); /* File to be stored at your site */
+   }
+
+  body {
+    font-family: "Avenir Book", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight:200;
+    font-size:14px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+  }
+  h1 {
+    font-weight:400;
+  }
+  h2 {
+    font-weight:400;
+  }
+
+  p {
+    font-weight:200;
+    line-height: 1.4;
+  }
+
+  code {
+    font-size: 0.8rem;
+    margin: 0 0.2rem;
+    padding: 0.5rem 0.8rem;
+    white-space: nowrap;
+    background: #efefef;
+    border: 1px solid #d3d3d3;
+    color: #000000;
+    border-radius: 3px;
+  }
+
+  pre > code {
+    display: block;
+    white-space: pre;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+  }
+
+  pre.prettyprint > code {
+    border: none;
+  }
+
+
+  .container {
+        display: flex;
+        align-items: center;
+        justify-content: center
+  }
+  .image {
+        flex-basis: 40%
+  }
+  .text {
+        padding-left: 20px;
+        padding-right: 20px;
+  }
+
+  .disclaimerbox {
+    background-color: #eee;
+    border: 1px solid #eeeeee;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+    padding: 20px;
+  }
+
+  video.header-vid {
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+
+  img.header-img {
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+
+  img.rounded {
+    border: 0px solid #eeeeee;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+
+  }
+
+  a:link,a:visited
+  {
+    color: #1367a7;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #208799;
+  }
+
+  td.dl-link {
+    height: 160px;
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow:
+            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+            15px 15px 0 0px #fff, /* The fourth layer */
+            15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+            20px 20px 0 0px #fff, /* The fifth layer */
+            20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+            25px 25px 0 0px #fff, /* The fifth layer */
+            25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+    margin-left: 10px;
+    margin-right: 45px;
+  }
+
+
+  .layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow:
+            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+  }
+
+  .vert-cent {
+    position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+  }
+
+  hr
+  {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  }
+</style>
+
+	<title>StoryGen</title>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1093.0" data-gr-ext-installed="">
+	<center>
+    <span style="font-size:50px; color:#4d4d4d; font-family: Varela Round,sans-serif; font-weight: 700; line-height: 65px;">StoryGen</span><br>
+    <span style="font-size:36px">Intelligent Grimm - Open-ended Visual Storytelling via Latent Diffusion Models</span><br><br>
+	</center>
+
+	<table align="center" width="800px">
+      <tbody><tr>
+              <td align="center" width="100px">
+        <center>
+          <span style="font-size:16px"><a href="https://github.com/Verg-Avesta/">Chang Liu</a><sup>1, 3*</sup></span>
+          </center>
+          </td>
+              <td align="center" width="160px">
+        <center>
+          <span style="font-size:16px"><a href="https://haoningwu3639.github.io/">Haoning Wu</a><sup>1*</sup></span>
+          </center>
+        </td>
+            <td align="center" width="160px">
+          <center>
+            <span style="font-size:16px"><a href="https://y-zhong.info/">Yujie Zhong</a><sup>2</sup></span>
+            </center>
+            </td>
+              <td align="center" width="160px">
+        <center>
+          <span style="font-size:16px"><a href="https://cmic.sjtu.edu.cn/CN/show.aspx?info_lb=35&info_id=1341&flag=35">Xiaoyun Zhang</a><sup>1</sup></span>
+          </center>
+        </td>
+              <td align="center" width="160px">
+        <center>
+          <span style="font-size:16px"><a href="https://weidixie.github.io/">Weidi Xie</a><sup>1,3 <img class="round" style="width:20px" src="./resources/corresponding_fig.png"></sup></span>
+          </center>            
+		        
+          </td></tr>
+        </tbody></table><br>
+	
+	  <table align="center" width="700px">
+            <tbody><tr>
+                    <td align="center" width="0px">
+              <center>
+                    <span style="font-size:16px"></span>
+                </center>
+                </td>
+                    <td align="center" width="300px">
+              <center>
+                    <span style="font-size:16px"><sup>1</sup>CMIC, Shanghai Jiao Tong University</span>
+                </center>
+                </td>
+                <td align="center" width="200px">
+                  <center>
+                        <span style="font-size:16px"><sup>2</sup>Meituan Inc., China</span>
+                    </center>
+                    </td>
+                    <td align="center" width="200px">
+              <center>
+                    <span style="font-size:16px"><sup>3</sup>Shanghai AI Lab</span>
+                </center>
+                </td>
+        </tr></tbody></table>
+        <br>
+        
+        <table align="center" width="700px">
+          <tbody><tr>
+                  <td align="center" width="700px">
+            <center>
+                  <span style="font-size:24px"><strong>Under Review</strong></span>
+              </center>
+              </td>
+      </tr></tbody></table>
+	
+	<table align="center" width="700px">
+            <tbody><tr>
+              <td align="center" width="200px">
+                <center>
+                  <br>
+                  <span style="font-size:20px">Code
+                    <a href="https://github.com/haoningwu3639/StoryGen"> [GitHub]</a>
+                  </span>
+                </center>
+              </td>
+
+              <td align="center" width="200px">
+                <center>
+                  <br>
+                  <span style="font-size:20px">
+                    Paper <a href="https://arxiv.org/"> [arXiv]</a>
+                  </span>
+                </center>
+              </td>
+
+              <td align="center" width="200px">
+                <center>
+                  <br>
+                  <span style="font-size:20px">
+                    Cite <a href="./resources/bibtex.txt"> [BibTeX]</a>
+                  </span>
+                </center>
+              </td>
+            </tr></tbody>
+      </table>
+      <br>
+      <hr>    
+      <br>
+      <center>
+          <img src="./resources/teaser.png" alt="alt text" style="width: 100%; object-fit: cover; max-width:100%;"></a>
+        </center>
+        <p style="text-align:justify; text-justify:inter-ideograph;"><left>
+          An illustration of open-ended visual storytelling. 
+          In practise, one user can prompt a large language model, 
+          for example, ChatGPT, to generate a unique and engaging story, which is then fed into our proposed <strong style="font-weight: 900">StoryGen</strong> model, 
+          to generate a sequence of images that are not only aligning to the given storyline, but also coherent. We recommend the reader to zoom in and read the story.
+      </left></p>
+        
+      <center><h2> Abstract </h2> </center>
+      <p style="text-align:justify; text-justify:inter-ideograph;">
+      </p><div class="container">
+        <div class="text" width="400px"> 
+          <p style="text-align:justify; text-justify:inter-ideograph;">
+            <left>
+              Benefiting from the impressive diffusion models, conditional generative models have exhibited exceptional capabilities in various generation tasks, for example, image or short video generation based on text description. In this work, we focus on the task of generating a series of coherent images based on a given storyline, denoted as <i>open-ended visual storytelling</i>.
+              We make the following three contributions: <br>
+              (i) to fulfill the task of visual storytelling, we introduce two modules into a pre-trained stable diffusion model, and construct an auto-regressive image generator,
+              termed as <strong style="font-weight: 900">StoryGen</strong>, that enables to generate the current frame by conditioning on a text prompt and preceding frame; <br>
+              (ii) to train our proposed model, we collect paired image and text samples by sourcing from various online sources, such as videos, E-books, and establish a data processing pipeline for constructing a diverse dataset, named <strong>StorySalon</strong>, with a far larger vocabulary than existing animation-specific datasets; <br>
+              (iii) we adopt a three-stage curriculum training strategy, that enables style transfer, visual context conditioning, and human feedback alignment, respectively. Quantitative experiments and human evaluation have validated the superiority of our proposed model, in terms of image quality, style consistency, content consistency, and visual-language alignment. We will make the code, model, and dataset publicly available to the research community.
+            </left></p>
+        </div>
+      </div>
+
+      <hr>
+      <center> <h2> Architecture </h2> </center>
+      <p><img class="left" src="./resources/arch.png" width="800px"></p>
+      <p style="text-align:justify; text-justify:inter-ideograph;"><left>
+        <strong style="font-weight: 900">Architecture Overview.</strong>
+        The <strong style="font-weight: 900">left</strong style="font-weight: 900"> figure illustrates the complete procedure of <i>visual storytelling</i>. 
+          Our StoryGen model utilizes contextual information from the previous frame and the text description at current step, to generate an image.
+        The <strong style="font-weight: 900">right</strong style="font-weight: 900"> figure displays the structure of our proposed modules, 
+        (i) style transfer module that is inserted into the text-conditioning module, with a LoRA-like architecture;
+        (ii) visual context module that enables the model to also condition on the features from the preceding image for generation.
+         </left></p>
+      
+      <hr>
+      <center><h2> StorySalon Dataset Pipeline </h2></center>
+      <p><img class="center" src="./resources/dataset.png" width="800px"></p>
+      <p><left>
+        <strong style="font-weight: 900">Dataset Pipeline Overview.</strong style="font-weight: 900">
+        The <strong style="font-weight: 900">left</strong style="font-weight: 900"> figure provides an overview of the complete dataset collection pipeline. 
+        Unstructured metadata sourced from the Internet undergoes a series of steps including visual frame extraction, 
+        visual-language alignment and visual frame post-processing, resulting in properly aligned image-text pairs.
+        The <strong style="font-weight: 900">right</strong style="font-weight: 900"> figure displays several examples of video data, E-book data, 
+        and synthetic samples from our StorySalon dataset. The accompanying texts represent their corresponding textual contents, respectively.
+      </left></p>
+
+      <center><p><img class="center" src="./resources/dataset_stat.png" width="600px"></p></center>
+      <p><left>
+        <strong style="font-weight: 900"> Analysis on Dataset Contents. </strong>
+        Distribution of storybooks and text-image pairs classified by the main character in our collected StorySalon dataset.
+        The basic version of our dataset (without synthetic data) comprises a total of 2,184 storybooks and 34,860 text-image pairs. 
+        Specifically, the video component consists of 1,286 storybooks and 21,778 text-image pairs, whereas the E-book component comprises 898 storybooks and 13,082 text-image pairs. 
+        Our findings reveal a total of 178 unique categories of main entities. 
+       </left></p>
+      <hr>
+
+      <center><h2> Results </h2></center>
+      <p>
+        <b> Quantitative Results </b>
+      </p>
+      <center><p><img class="center" src="./resources/quantitative.png" width="600px"></p></center>
+      <p>
+        <b>Comparison result of FID and human evaluation.</b> 
+        GT stands for the ground truth from the training set. 
+        SDM denotes Stable Diffusion and Prompt-SDM denotes SDM with cartoon-style-directed prompts. 
+        Align. and Pref. represent the abbreviations of Text-image alignment and Preference respectively.
+      </p>
+
+      <p>
+        <b> Qualitative Results </b>
+      </p>
+      <p><img class="center" src="./resources/qualitative.png" width="800px"></p>
+      <p>
+        The images in <font style="color: limegreen">green</font>, <font style="color: orange">orange</font> and <font style="color: cyan">blue</font> boxes are generated by 
+        <font style="color: limegreen">SDM</font>, <font style="color: orange">Prompt-SDM</font> and <b><font style="color: cyan">StoryGen</font></b> respectively. 
+        Our results have superior style and content consistency, text-image alignment, and image quality.
+      </p>
+      <hr>
+
+      <center> <h2> Human Feedback </h2> </center>
+      <center><p><img class="center" src="./resources/human_feedback.png" width="600px"></p></center>
+      <p>
+        We use the model (trained after two stages) to generate a set of new storybooks, and incorporate human feedback into the fine-tuning process. 
+        Following a rigorous manual review, we carefully select the best pieces, and add them into the training dataset. 
+        This allows us to continually improve the quality of our model and ensure that it produces engaging, yet educational storybooks, that align with human's preference.
+      </p>
+      <p><img class="center" src="./resources/qualitative2.png" width="800px"></p>
+      <p>
+        The images in <font style="color: limegreen">green</font>, <font style="color: orange">orange</font>, <font style="color: pink">pink</font>, <font style="color: cyan">blue</font>
+        and <font style="color: red">red</font> boxes are generated by 
+        <font style="color: limegreen">SDM</font>, <font style="color: orange">Prompt-SDM</font>, <font style="color: pink">StoryGen-Single</font> <b><font style="color: cyan">StoryGen</font></b> 
+        and <font style="color: red">StoryGen-HF</font> respectively. 
+        The results of our proposed models have exhibited superior style and content consistency, text-image alignment, and image quality.
+      </p>
+      <hr>
+
+      <center><h2> Visual StoryTelling </h2></center>
+
+      <div class="container">
+          <div><left><video width="250px" controls autoplay><source src="./resources/000001.mp4" type="video/mp4"></video></left></div> &nbsp;
+          <div><center><video width="250px" controls autoplay><source src="./resources/000002.mp4" type="video/mp4"></video></center></div> &nbsp;
+          <div><right><video width="250px" controls autoplay><source src="./resources/000003.mp4" type="video/mp4"></video></right></div>
+      </div>
+      <br>
+
+      <div class="container">
+        <div><left><video width="250px" controls autoplay><source src="./resources/000004.mp4" type="video/mp4"></video></left></div> &nbsp;
+        <div><center><video width="250px" controls autoplay><source src="./resources/000005.mp4" type="video/mp4"></video></center></div> &nbsp;
+        <div><right><video width="250px" controls autoplay><source src="./resources/000006.mp4" type="video/mp4"></video></right></div>
+    </div>
+    <br>
+
+    <div class="container">
+      <div><left><video width="250px" controls autoplay><source src="./resources/000007.mp4" type="video/mp4"></video></left></div> &nbsp;
+      <div><center><video width="250px" controls autoplay><source src="./resources/000008.mp4" type="video/mp4"></video></center></div> &nbsp;
+      <div><right><video width="250px" controls autoplay><source src="./resources/000009.mp4" type="video/mp4"></video></right></div>
+  </div>
+
+      <br>
+      <hr>
+
+      <center> <h2> Acknowledgements </h2> </center>
+      <p> 
+	      Based on a template by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a>.
+      </p>
+      <br>
+<br>
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
