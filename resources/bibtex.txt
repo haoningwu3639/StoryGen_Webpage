@@ -1,4 +1,4 @@
-@artical{liu2023intelligent,
+@article{liu2023intelligent,
       title={Intelligent Grimm -- Open-ended Visual Storytelling via Latent Diffusion Models}, 
       author={Chang Liu and Haoning Wu and Yujie Zhong and Xiaoyun Zhang and Weidi Xie},
       year={2023},
