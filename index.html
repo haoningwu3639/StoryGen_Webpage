@@ -167,32 +167,38 @@
 
 	<table align="center" width="800px">
       <tbody><tr>
-              <td align="center" width="160px">
+              <td align="center" width="100px">
         <center>
           <span style="font-size:16px"><a href="https://verg-avesta.github.io/">Chang Liu</a><sup>1,3*</sup></span>
           </center>
           </td>
-              <td align="center" width="160px">
+              <td align="center" width="100px">
         <center>
           <span style="font-size:16px"><a href="https://haoningwu3639.github.io/">Haoning Wu</a><sup>1*</sup></span>
           </center>
         </td>
-            <td align="center" width="160px">
+            <td align="center" width="100px">
           <center>
             <span style="font-size:16px"><a href="https://y-zhong.info/">Yujie Zhong</a><sup>2</sup></span>
             </center>
             </td>
-              <td align="center" width="160px">
+              <td align="center" width="120px">
         <center>
-          <span style="font-size:16px"><a href="https://mediabrain.sjtu.edu.cn/xiaoyun-zhang/">Xiaoyun Zhang</a><sup>1</sup></span>
+          <span style="font-size:16px"><a href="https://mediabrain.sjtu.edu.cn/xiaoyun-zhang/">Xiaoyun Zhang</a><sup>1 <img class="round" style="width:12px" src="./resources/corresponding_fig.png"></sup></span>
           </center>
         </td>
-              <td align="center" width="160px">
+              <td align="center" width="120px">
         <center>
-          <span style="font-size:16px"><a href="https://weidixie.github.io/">Weidi Xie</a><sup>1,3 <img class="round" style="width:20px" src="./resources/corresponding_fig.png"></sup></span>
-          </center>            
-		        
-          </td></tr>
+          <span style="font-size:16px"><a href="https://weidixie.github.io/">Weidi Xie</a><sup>1,3 <img class="round" style="width:12px" src="./resources/corresponding_fig.png"></sup></span>
+          </center>                
+        </td>
+        <td align="center" width="120px">
+          <center>
+            <span style="font-size:16px"><a href="https://mediabrain.sjtu.edu.cn/members/">Yanfeng Wang</a><sup>1,3 <img class="round" style="width:12px" src="./resources/corresponding_fig.png"></sup></span>
+            </center>                
+          
+
+        </tr>
         </tbody></table><br>
 	
 	  <table align="center" width="700px">
@@ -266,10 +272,11 @@
           <img src="./resources/teaser.png" alt="alt text" style="width: 100%; object-fit: cover; max-width:100%;"></a>
         </center>
         <p style="text-align:justify; text-justify:inter-ideograph;"><left>
-          An illustration of open-ended visual storytelling. 
-          In practice, one user can prompt a large language model, for example, ChatGPT, to generate a unique and engaging story, 
-          that is then fed into our proposed <strong style="font-weight: 900">StoryGen</strong> model, 
-          to generate a sequence of images. We recommend the reader to zoom in and read the story.
+          <strong> An illustration of open-ended visual storytelling.</strong>
+          In practice, users can feed a unique and engaging story synthesized by a large language model into our proposed <strong>StoryGen</strong> model to generate a sequence of images coherently,
+          denoted as <i>open-ended visual story generation</i>.
+          And they can also provide a pre-defined character with its corresponding storyline, to perform <i>open-ended visual story continuation</i>.
+          We recommend the reader to zoom in and read the story.
       </left></p>
         
       <center><h2> Abstract </h2> </center>
@@ -278,48 +285,57 @@
         <div class="text" width="400px"> 
           <p style="text-align:justify; text-justify:inter-ideograph;">
             <left>
-              Generative models have recently exhibited exceptional capabilities in various scenarios, for example, image generation based on text description. 
-              In this work, we focus on the task of generating a series of coherent image sequence based on a given storyline, denoted as  <i>open-ended visual storytelling</i>.
+              Generative models have recently exhibited exceptional capabilities in text-to-image generation, but still struggle to generate image sequences coherently. 
+              In this work, we focus on a novel, yet challenging task of generating a coherent image sequence based on a given storyline, denoted as <strong><i>open-ended visual storytelling</i></strong>.
               We make the following three contributions: <br>
-              (i) to fulfill the task of visual storytelling, we introduce two modules into a pre-trained stable diffusion model, and construct an auto-regressive image generator,
-              termed as <strong style="font-weight: 900">StoryGen</strong>, that enables to generate the current frame by conditioning on both a text prompt and a preceding frame; <br>
-              (ii) to train our proposed model, we collect paired image and text samples by sourcing from various online sources, such as videos, E-books, and establish a data processing pipeline for constructing a diverse dataset, named <strong>StorySalon</strong>, with a far larger vocabulary than existing animation-specific datasets; <br>
-              (iii) we adopt a three-stage curriculum training strategy, that enables style transfer, visual context conditioning, and human feedback alignment, respectively. Quantitative experiments and human evaluation have validated the superiority of our proposed model, in terms of image quality, style consistency, content consistency, and visual-language alignment. We will make the code, model, and dataset publicly available to the research community.
+              (i) to fulfill the task of visual storytelling,
+              we propose a learning-based auto-regressive image generation model, termed as <strong>StoryGen</strong>, 
+              with a novel vision-language context module, that enables to generate the current frame by conditioning on the corresponding text prompt and preceding image-caption pairs; <br>
+              (ii) to address the data shortage of visual storytelling, 
+              we collect paired image-text sequences by sourcing from online videos and open-source E-books, 
+              establishing processing pipeline for constructing a large-scale dataset with diverse characters, storylines, and artistic styles, named <strong>StorySalon</strong>; <br>
+              (iii) Quantitative experiments and human evaluations have validated the superiority of our StoryGen, 
+              where we show StoryGen can generalize to unseen characters without any optimization, 
+              and generate image sequences with coherent content and consistent character. <br>
+              The code, model, and dataset will be made publicly available to the research community.
             </left></p>
         </div>
       </div>
 
       <hr>
-      <center> <h2> Architecture </h2> </center>
-      <p><img class="left" src="./resources/arch.png" width="800px"></p>
+      <center> <h2> StoryGen Architecture </h2> </center>
+      <p><img class="center" src="./resources/arch.png" width="800px"></p>
       <p style="text-align:justify; text-justify:inter-ideograph;"><left>
         <strong style="font-weight: 900">Architecture Overview.</strong>
-        The <strong style="font-weight: 900">left</strong style="font-weight: 900"> figure illustrates the complete procedure of <i>visual storytelling</i>. 
-          Our StoryGen model utilizes contextual information from the previous frame and the text description at current step, to generate an image.
-        The <strong style="font-weight: 900">right</strong style="font-weight: 900"> figure displays the structure of our proposed modules, 
-        (i) style transfer module that is inserted into the text-conditioning module, with a LoRA-like architecture;
-        (ii) visual context module that enables the model to also condition on the features from the preceding image for generation.
-         </left></p>
+        (a) Our StoryGen model utilizes current text prompt and previous visual-language contexts as conditions to generate an image, 
+        iteratively synthesizing a coherent image sequence.
+        Note the parameters of the corresponding attention layers are shared between Diffusion UNet and StoryGen.
+        To avoid potential ambiguity, the parameters are not shared across UNet blocks in a single model.
+        (b) The proposed Visual-Language Context Module can effectively combine the information from current text prompt and contexts from preceding image-caption pairs.
+        (c) We add more noise to reference frames with longer temporal distances to the current frame as positional encoding to distinguish the temporal order. 
+        The multiple features can then be directly concatenated to serve as context conditions.
+        </left></p>
       
       <hr>
-      <center><h2> StorySalon Dataset Pipeline </h2></center>
-      <p><img class="center" src="./resources/dataset.png" width="800px"></p>
+      <center><h2> StorySalon Dataset</h2></center>
+      <p><img class="center" src="./resources/dataset.png" width="750px"></p>
       <p><left>
-        <strong style="font-weight: 900">Dataset Pipeline Overview.</strong style="font-weight: 900">
-        The <strong style="font-weight: 900">left</strong style="font-weight: 900"> figure provides an overview of the complete dataset collection pipeline. 
-        Unstructured metadata sourced from the Internet undergoes a series of steps including visual frame extraction, 
-        visual-language alignment and visual frame post-processing, resulting in properly aligned image-text pairs.
-        The <strong style="font-weight: 900">right</strong style="font-weight: 900"> figure displays several examples of video data, E-book data, 
-        and synthetic samples from our StorySalon dataset. The accompanying texts represent their corresponding textual contents, respectively.
+        <strong style="font-weight: 900">StorySalon Dataset Overview.</strong style="font-weight: 900">
+        <strong style="font-weight: 900">Left:</strong style="font-weight: 900"> 
+          Dataset Pipeline and Visualization: Meta-data sourced from the Internet undergoes a three-step pipeline including frame extraction, visual-language alignment and post-processing,
+          resulting in properly aligned image-text pairs. 
+          And our StorySalon dataset contains diverse styles and characters.
+          <strong style="font-weight: 900">Right:</strong style="font-weight: 900">
+            Dataset Statistics: Our StorySalon dataset far exceeds previous story generation datasets in terms of the total number of images, average length, and categories of characters included.
       </left></p>
 
-      <center><p><img class="center" src="./resources/dataset_stat.png" width="600px"></p></center>
+      <center><p><img class="center" src="./resources/dataset_stat.png" width="750px"></p></center>
       <p><left>
-        <strong style="font-weight: 900"> Analysis on Dataset Contents. </strong>
-        Distribution of storybooks and text-image pairs classified by the main character in our collected StorySalon dataset.
-        The basic version of our dataset (without synthetic data) comprises a total of 2,184 storybooks and 34,860 text-image pairs. 
-        Specifically, the video component consists of 1,286 storybooks and 21,778 text-image pairs, whereas the E-book component comprises 898 storybooks and 13,082 text-image pairs. 
-        Our findings reveal a total of 178 unique categories of main entities. 
+        <strong style="font-weight: 900"> Dataset Statistics Results. </strong>
+        <strong style="font-weight: 900">Left:</strong style="font-weight: 900">
+          Distribution of text-image pairs classified by the main character categories in our collected StorySalon dataset.
+        <strong style="font-weight: 900">Right:</strong style="font-weight: 900">
+          The top 16 character categories and corresponding numbers in StorySalon, cover a wide range of character types.
        </left></p>
       <hr>
 
@@ -329,10 +345,16 @@
       </p>
       <center><p><img class="center" src="./resources/quantitative.png" width="600px"></p></center>
       <p>
-        <b>Comparison result of FID and human evaluation.</b> 
-        GT stands for the ground truth from the training set. 
-        SDM denotes Stable Diffusion and Prompt-SDM denotes SDM with cartoon-style-directed prompts. 
-        Align. and Pref. represent the abbreviations of Text-image alignment and Preference respectively.
+        <b>Comparison result of automatic metrics</b> on StorySalon test set.
+        Prompt-SDM denotes Stable Diffusion model with cartoon-style-directed prompts and Finetuned-SDM represents a Stable Diffusion model with all parameters fine-tuned on our StorySalon dataset.
+      </p>
+
+      <center><p><img class="center" src="./resources/human_evaluation.png" width="750px"></p></center>
+      <p>
+        <b>Comparison result of human evaluation.</b>
+        GT stands for ground truth from the test set.
+        StoryGen-S represents StoryGen without context conditions.
+        The abbreviated metrics are Text-image alignment, Style consistency, Content consistency, Character consistency, image quality, and Preference, respectively.
       </p>
 
       <p>
@@ -340,52 +362,50 @@
       </p>
       <p><img class="center" src="./resources/qualitative.png" width="800px"></p>
       <p>
-        The images in <font style="color: limegreen">green</font>, <font style="color: orange">orange</font> and <font style="color: cyan">blue</font> boxes are generated by 
-        <font style="color: limegreen">SDM</font>, <font style="color: orange">Prompt-SDM</font> and <font style="color: cyan">StoryGen</font> respectively. 
-        Our results have superior style and content consistency, text-image alignment, and image quality.
+        The images in <font style="color: orange">orange</font>, <font style="color: 92D050">green</font>, and <font style="color: 00B0F0">blue</font> boxes are generated by 
+        <font style="color: orange">Prompt-SDM</font>, <font style="color: 92D050">AR-LDM</font>, and <font style="color: 00B0F0">StoryGen</font> respectively. 
+        Our synthesis results exhibit impressive performance superiority in terms of style, content and character consistency, text-image alignment, and image quality.
+        Please refer to the paper Appendix for more qualitative results.
       </p>
+      
+      <p><b> Ablation Study Results </b></p>
+      <p><img class="center" src="./resources/consistency.png" width="800px"></p>
+      <p>
+        <b>Ablation studies on consistency.</b>
+        We incorporate our proposed Visual-Language Context Module into a pre-trained SDM,
+        and train it on MS-COCO with other parameters frozen.
+        The content consistency of single-object and multi-object generation on COCO and real-data has demonstrated the effectiveness of our module.
+        Please refer to the paper Appendix for experiment details and quantitative results.
+      </p>
+
       <hr>
 
-      <center> <h2> Human Feedback </h2> </center>
-      <center><p><img class="center" src="./resources/human_feedback.png" width="600px"></p></center>
+      <center> <h2> More Visualization </h2> </center>
+      
+      <p><img class="center" src="./resources/generation1.png" width="800px"></p>
       <p>
-        We use the model (trained after two stages) to generate a set of new storybooks, and incorporate human feedback into the fine-tuning process. 
-        Following a rigorous manual review, we carefully select the best pieces, and add them into the training dataset. 
-        This allows us to continually improve the quality of our model and ensure that it produces engaging, yet educational storybooks, that align with human's preference.
+        <strong>Visualization results of Story Generation.</strong>
+        The images in <font style="color: orange">orange</font>, <font style="color: red">red</font>, <font style="color: FF00C6">pink</font>, and <font style="color: 00B0F0">blue</font> boxes are generated by 
+        <font style="color: orange">SDM</font>, <font style="color: red">Prompt-SDM</font>, <font style="color: FF00C6">StoryGen-Single</font>, and <font style="color: 00B0F0">StoryGen</font> respectively. 
       </p>
-      <p><img class="center" src="./resources/qualitative2.png" width="800px"></p>
+
+      <p><img class="center" src="./resources/continuation1.png" width="800px"></p>
       <p>
-        The images in <font style="color: limegreen">green</font>, <font style="color: orange">orange</font>, <font style="color: pink">pink</font>, <font style="color: cyan">blue</font>
-        and <font style="color: red">red</font> boxes are generated by 
-        <font style="color: limegreen">SDM</font>, <font style="color: orange">Prompt-SDM</font>, <font style="color: pink">StoryGen-Single</font> <font style="color: cyan">StoryGen</font>
-        and <font style="color: red">StoryGen-HF</font> respectively. 
-        The results of our proposed models have exhibited superior style and content consistency, text-image alignment, and image quality.
+        <strong>Visualization results of Story Continuation.</strong>
+        The images in <font style="color: gray">gray</font>, <font style="color: 92D050">green</font>, and <font style="color: 00B0F0">blue</font> boxes are generated by 
+        <font style="color: gray">StoryDALL-E</font>, <font style="color: 92D050">AR-LDM</font>, and <font style="color: 00B0F0">StoryGen</font> respectively. 
       </p>
-      <hr>
 
-      <center><h2> Visual StoryTelling </h2></center>
+      <p><img class="center" src="./resources/COCO_single.png" width="800px"></p>
+      <p>
+        <strong>Visualization results of StoryGen on COCO in single image-text context pair scenario.</strong>
+      </p>
 
-      <div class="container">
-          <div><left><video width="250px" controls><source src="./resources/000001.mp4" type="video/mp4"></video></left></div> &nbsp;
-          <div><center><video width="250px" controls><source src="./resources/000002.mp4" type="video/mp4"></video></center></div> &nbsp;
-          <div><right><video width="250px" controls><source src="./resources/000003.mp4" type="video/mp4"></video></right></div>
-      </div>
-      <br>
+      <p><img class="center" src="./resources/COCO_multi.png" width="800px"></p>
+      <p>
+        <strong>Visualization results of StoryGen on COCO in multiple image-text context pairs scenario.</strong>
+      </p>
 
-      <div class="container">
-        <div><left><video width="250px" controls><source src="./resources/000004.mp4" type="video/mp4"></video></left></div> &nbsp;
-        <div><center><video width="250px" controls><source src="./resources/000005.mp4" type="video/mp4"></video></center></div> &nbsp;
-        <div><right><video width="250px" controls><source src="./resources/000006.mp4" type="video/mp4"></video></right></div>
-    </div>
-    <br>
-
-    <div class="container">
-      <div><left><video width="250px" controls><source src="./resources/000007.mp4" type="video/mp4"></video></left></div> &nbsp;
-      <div><center><video width="250px" controls><source src="./resources/000008.mp4" type="video/mp4"></video></center></div> &nbsp;
-      <div><right><video width="250px" controls><source src="./resources/000009.mp4" type="video/mp4"></video></right></div>
-  </div>
-
-      <br>
       <hr>
 
       <center> <h2> Acknowledgements </h2> </center>
