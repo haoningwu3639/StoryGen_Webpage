@@ -1,6 +1,6 @@
-@article{liu2023intelligent,
-      title={Intelligent Grimm -- Open-ended Visual Storytelling via Latent Diffusion Models}, 
-      author={Chang Liu and Haoning Wu and Yujie Zhong and Xiaoyun Zhang and Weidi Xie},
-      year={2023},
-      journal={arXiv preprint arXiv:2306.00973},
+@inproceedings{liu2024intelligent,
+      title     = {Intelligent Grimm -- Open-ended Visual Storytelling via Latent Diffusion Models}, 
+      author    = {Chang Liu, Haoning Wu, Yujie Zhong, Xiaoyun Zhang, Yanfeng Wang, Weidi Xie},
+      booktitle = {The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+      year      = {2024},
 }
